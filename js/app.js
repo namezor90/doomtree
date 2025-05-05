@@ -4,7 +4,8 @@
  */
 
 // Biztonsági ellenőrzés, hogy a szükséges függőségek elérhetők-e
-if (!window.DOMViewerUtils || !window.DOMParser || !window.DOMVisualizer) {
+// JAVÍTVA: DOMParser helyett DOMTreeParser név használata
+if (!window.DOMViewerUtils || !window.DOMTreeParser || !window.DOMVisualizer) {
     console.error('Hiba: A szükséges DOM-fa Megjelenítő modulok nem érhetők el!');
     alert('Hiba: A szükséges modulok nem töltődtek be! Kérjük, frissítse az oldalt vagy ellenőrizze a konzolt.');
 }
@@ -119,7 +120,8 @@ const DOMViewerApp = {
         // Elemzés és megjelenítés
         try {
             // HTML elemzése DOM-fává
-            const treeData = DOMParser.createTreeData(htmlInput);
+            // JAVÍTVA: DOMParser helyett DOMTreeParser használata
+            const treeData = DOMTreeParser.createTreeData(htmlInput);
             
             // Ha sikeres az elemzés, vizualizáljuk
             if (treeData) {
