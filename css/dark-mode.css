@@ -1,0 +1,97 @@
+/* Sötét mód */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #2680c2;
+        --secondary-color: #186faf;
+        --bg-color: #243b53;
+        --text-color: #e6f6ff;
+        --node-bg: #334e68;
+        --node-border: #486581;
+        --node-hover: #3e5974;
+        --connector-color: #829ab1;
+        --highlight-color: #4098d7;
+        --element-color: #4098d7;
+        --attribute-color: #9fbbd4;
+        --comment-color: #9fb3c8;
+        --text-node-color: #bcccdc;
+        --success-color: #49c887;
+        --warning-color: #f2994a;
+        --error-color: #ff6b6b;
+        --info-color: #62b0ff;
+    }
+
+    body, .control-panel, .visualizer, .detail-panel, .debug-panel {
+        background-color: #102a43;
+        color: var(--text-color);
+    }
+
+    select, button:not(.debug-tab), input, textarea {
+        background-color: #1e3a5f;
+        color: var(--text-color);
+        border-color: var(--node-border);
+    }
+
+    button:not(.debug-tab):hover {
+        background-color: #2a4a73;
+    }
+
+    .detail-content, #parsed-data-content {
+        background-color: #1e3a5f;
+    }
+
+    .status-area {
+        background-color: #1e3a5f;
+        border-left: 4px solid #4098d7;
+    }
+
+    .error-message {
+        background-color: #43242b;
+        border-left: 4px solid var(--error-color);
+    }
+
+    .warning-message {
+        background-color: #43331b;
+        border-left: 4px solid var(--warning-color);
+    }
+
+    .success-message {
+        background-color: #0f3721;
+        border-left: 4px solid var(--success-color);
+    }
+
+    .node rect {
+        fill: var(--node-bg);
+    }
+
+    .debug-tab {
+        color: var(--text-color);
+    }
+
+    .debug-tab.active {
+        color: var(--primary-color);
+    }
+
+    /* Tree structure dark mode */
+    .tree-structure li span:hover {
+        color: var(--highlight-color);
+    }
+
+    /* Hide scrollbar in dark mode for better aesthetics */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #102a43;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #486581;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #627d98;
+    }
+}
