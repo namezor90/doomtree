@@ -1,9 +1,8 @@
 /**
  * DOM elemző modul a DOM-fa megjelenítőhöz
- * FONTOS: A névütközés elkerülése érdekében átnevezve DOMTreeParser-re
  */
 
-const DOMTreeParser = {
+const DOMParser = {
     /**
      * Egyedi azonosító számláló
      */
@@ -20,13 +19,11 @@ const DOMTreeParser = {
             this._nodeId = 0;
             
             // HTML elemzése a böngésző beépített DOM parserével
-            // A beépített böngésző DOMParser osztályt használjuk, ez nem keverendő össze
-            // a mi DOMTreeParser modulunkkal
-            const nativeDOMParser = new window.DOMParser();
+            const parser = new window.DOMParser();
             let doc;
             
             try {
-                doc = nativeDOMParser.parseFromString(htmlString, 'text/html');
+                doc = parser.parseFromString(htmlString, 'text/html');
                 
                 // Ellenőrizzük, hogy a parser nem dobott-e hibát
                 const parserError = doc.querySelector('parsererror');
@@ -173,5 +170,5 @@ const DOMTreeParser = {
     }
 };
 
-// Exportálás globális változóként - JAVÍTVA: DOMTreeParser névvel
-window.DOMTreeParser = DOMTreeParser;
+// Exportálás globális változóként
+window.DOMParser = DOMParser;

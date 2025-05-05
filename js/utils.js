@@ -162,3 +162,7 @@ const DOMViewerUtils = {
             return v.toString(16);
         });
     }
+};  // Hiányzó záró kapcsos zárójel és pontosvessző
+
+// Exportálás globális változóként
+window.DOMViewerUtils = DOMViewerUtils;

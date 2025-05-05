@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Parser teszt</title>
+</head>
+<body>
+    <textarea id="html-input" rows="10" cols="50">
+        <!DOCTYPE html>
+        <html><body><p>Teszt</p></body></html>
+    </textarea>
+    <button id="test-btn">Teszt</button>
+    <div id="output"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/domTreeParser.js"></script>
+    <script>
+        document.getElementById('test-btn').addEventListener('click', function() {
+            const html = document.getElementById('html-input').value;
+            try {
+                // Teszteld, hogy elérhető-e a DOMTreeParser
+                if (typeof DOMTreeParser === 'undefined') {
+                    throw new Error('DOMTreeParser nem érhető el!');
+                }
+                // Próbálj meg egy DOM-fát létrehozni
+                const tree = DOMTreeParser.createTreeData(html);
+                document.getElementById('output').textContent = JSON.stringify(tree, null, 2);
+            } catch (error) {
+                document.getElementById('output').textContent = 'Hiba: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>
